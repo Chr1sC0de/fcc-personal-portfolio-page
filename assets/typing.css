@@ -1,0 +1,69 @@
+:root {
+    --color-1    : #74B3CE;
+    --color-2    : #508991;
+    --color-3    : #172A3A;
+    --color-4    : #004346;
+    --color-5    : #09BC8A;
+    --typing-time: 1s;
+    --blink-time : 0.2s
+}
+
+#welcome-section {
+    white-space   : nowrap;
+    margin        : 0 auto;
+    letter-spacing: 0em;
+}
+
+#welcome-section h1 {
+    overflow    : hidden;
+    visibility  : hidden;
+    animation   :
+        h1-typing var(--typing-time) steps(50, end),
+        h1-blink-caret var(--blink-time) step-end 5;
+    animation-delay    : var(--typing-time);
+    animation-fill-mode: forwards;
+}
+
+#welcome-section p {
+    overflow  : hidden;
+    visibility: hidden;
+    animation :
+        p-typing var(--typing-time) steps(40, end),
+        p-blink-caret var(--blink-time) step-start 5,
+        p-opacity var(--typing-time);
+    animation-fill-mode: forwards;
+}
+
+@keyframes h1-typing {
+    from {width: 0}
+    to {
+        width       : 57vw;
+        visibility  : visible;
+    }
+}
+
+@keyframes h1-blink-caret {
+    from, to {border-color: transparent}
+    50% {border-right: 10px solid white}
+}
+
+
+
+@keyframes p-typing {
+    from {width: 0; visibility: visible;}
+    to {
+        width: 37vw;
+        visibility: visible;
+    }
+}
+
+@keyframes p-blink-caret {
+    from, to {border-color: transparent}
+    50% {border-right: 5px solid rgb(187, 135, 38)}
+}
+
+@keyframes p-opacity {
+    from {opacity: 0.1;}
+    60% {opacity: 0.7;}
+    to {opacity: 0.9;}
+}
